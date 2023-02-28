@@ -10,9 +10,18 @@ public class MoreThreads {
     public static void main(String args[]) {
         System.out.println("Main thread starting.");
 
-        MyThread mt1 = MyThread.createAndStart("Child #1");
-        MyThread mt2 = MyThread.createAndStart("Child #2");
-        MyThread mt3 = MyThread.createAndStart("Child #3");
+//        MyThread mt1 = MyThread.createAndStart("Child #1");
+//        MyThread mt2 = MyThread.createAndStart("Child #2");
+//        MyThread mt3 = MyThread.createAndStart("Child #3");
+
+        MyThread[] thr = new MyThread[15];
+        for(int i = 0; i < thr.length; i++) {
+            thr[i] = MyThread.createAndStart("Child #" + i);
+        }
+
+//        for(int i = 1; i <= 15; i++) {
+//            MyThread thr = MyThread.createAndStart("Child #" + i);
+//        }
 
         for(int i=0; i < 50; i++) {
             System.out.print(".");
